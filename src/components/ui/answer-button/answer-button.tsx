@@ -24,8 +24,13 @@ function AnswerButton({
   });
 
   const handleClick = () => {
-    if (!isDisabled) {
-      onClick();
+    if (!isDisabled && onClick) {
+      try {
+        onClick();
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error('Error in answer button click handler:', error);
+      }
     }
   };
 

@@ -30,6 +30,13 @@
   width: 100%;
 }
 
+.errorMessage {
+  color: var(--error);
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 1rem;
+}
+
 .listVisible {
   transform: translateX(-100%);
 }

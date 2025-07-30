@@ -1,4 +1,5 @@
-import { GameState, Question } from '@/interfaces/game';
+import { AnswerId, GameState, Question } from '@/interfaces/game';
+import { safeGetAnswer, safeGetQuestion } from '@/lib/validation';
 import { useCallback, useState } from 'react';
 
 const INITIAL_GAME_STATE: GameState = {
@@ -30,12 +31,36 @@ export default function useGameLogic() {
   }, []);
 
   const getCurrentQuestion = useCallback(
-    (questions: Question[]) => questions[gameState.currentQuestionIndex],
+    (questions: readonly Question[]): Question | null => {
+      if (!Array.isArray(questions) || questions.length === 0) {
+        // eslint-disable-next-line no-console
+        console.warn('getCurrentQuestion: Invalid questions array');
+        return null;
+      }
+
+      const question = safeGetQuestion(questions, gameState.currentQuestionIndex);
+      if (!question) {
+        // eslint-disable-next-line no-console
+        console.warn(`getCurrentQuestion: Question at index ${gameState.currentQuestionIndex} not found`);
+        return null;
+      }
+
+      return question;
+    },
     [gameState.currentQuestionIndex],
   );
 
   const findCorrectAnswer = useCallback(
-    (question: Question) => question.answers.find((answer) => answer.isCorrect)?.id || null,
+    (question: Question): AnswerId | null => {
+      if (!question || !Array.isArray(question.answers)) {
+      // eslint-disable-next-line no-console
+        console.warn('findCorrectAnswer: Invalid question or answers');
+        return null;
+      }
+
+      const correctAnswer = question.answers.find((answer) => answer.isCorrect);
+      return correctAnswer?.id || null;
+    },
     [],
   );
 
@@ -89,15 +114,42 @@ export default function useGameLogic() {
     [handleCorrectAnswer, handleIncorrectAnswer],
   );
 
-  const selectAnswer = useCallback((answerId: string, questions: Question[]) => {
-    if (gameState.isAnswerSubmitted) return;
+  const selectAnswer = useCallback((answerId: AnswerId, questions: readonly Question[]) => {
+    // Validate input parameters
+    if (!answerId || typeof answerId !== 'string') {
+      // eslint-disable-next-line no-console
+      console.error('selectAnswer: Invalid answerId provided');
+      return;
+    }
 
-    const currentQuestion = questions[gameState.currentQuestionIndex];
-    const selectedAnswer = currentQuestion.answers.find(
-      (answer) => answer.id === answerId,
-    );
+    if (!Array.isArray(questions) || questions.length === 0) {
+      // eslint-disable-next-line no-console
+      console.error('selectAnswer: Invalid questions array');
+      return;
+    }
 
-    if (!selectedAnswer) return;
+    // Check if answer is already submitted
+    if (gameState.isAnswerSubmitted) {
+      // eslint-disable-next-line no-console
+      console.warn('selectAnswer: Answer already submitted');
+      return;
+    }
+
+    // Get current question with bounds checking
+    const currentQuestion = getCurrentQuestion(questions);
+    if (!currentQuestion) {
+      // eslint-disable-next-line no-console
+      console.error('selectAnswer: Current question not found');
+      return;
+    }
+
+    // Validate answer exists
+    const selectedAnswer = safeGetAnswer(currentQuestion.answers, answerId);
+    if (!selectedAnswer) {
+      // eslint-disable-next-line no-console
+      console.error(`selectAnswer: Answer with ID ${answerId} not found`);
+      return;
+    }
 
     const { isCorrect } = selectedAnswer;
     const currentAmount = currentQuestion.amount;
@@ -116,6 +168,7 @@ export default function useGameLogic() {
   }, [
     gameState.isAnswerSubmitted,
     gameState.currentQuestionIndex,
+    getCurrentQuestion,
     findCorrectAnswer,
     submitAnswerResult,
   ]);

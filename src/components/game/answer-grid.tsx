@@ -1,14 +1,14 @@
 import { AnswerButton } from '@/components/ui/answer-button';
-import { Answer } from '@/interfaces/game';
+import { Answer, AnswerId } from '@/interfaces/game';
 import styles from './game-screen.module.css';
 
 interface AnswerGridProps {
-  answers: Answer[];
-  selectedAnswer: string | null;
+  answers: readonly Answer[];
+  selectedAnswer: AnswerId | null;
   isAnswerSubmitted: boolean;
   isShowingResult: boolean;
-  correctAnswerId: string | null;
-  onAnswerSelect: (answerId: string) => void;
+  correctAnswerId: AnswerId | null;
+  onAnswerSelect: (answerId: AnswerId) => void;
   questionId: number;
 }
 

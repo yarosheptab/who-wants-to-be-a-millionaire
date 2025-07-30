@@ -1,7 +1,9 @@
 'use client';
 
 import gameConfig from '@/config/game-config.json';
-import { GameState, Question } from '@/interfaces/game';
+import { AnswerId, GameState, Question } from '@/interfaces/game';
+import { validateGameConfig } from '@/lib/validation';
+import { useMemo } from 'react';
 import AnswerGrid from './answer-grid';
 import styles from './game-screen.module.css';
 import LoadingState from './loading-state';
@@ -14,17 +16,44 @@ export default function GameScreen({
   getCurrentQuestion,
 }: {
   gameState: GameState,
-  selectAnswer: (answerId: string, questions: Question[]) => void,
-  getCurrentQuestion: (questions: Question[]) => Question,
+  selectAnswer: (answerId: AnswerId, questions: readonly Question[]) => void,
+  getCurrentQuestion: (questions: readonly Question[]) => Question | null,
 }) {
-  const { questions } = gameConfig;
+  // Validate game configuration
+  const validatedConfig = useMemo(() => {
+    try {
+      return validateGameConfig(gameConfig);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Game configuration validation failed:', error);
+      return null;
+    }
+  }, []);
+
+  // Get questions safely
+  const questions = validatedConfig?.questions || [];
+
+  // Get current question with bounds checking
   const currentQuestion = getCurrentQuestion(questions);
 
-  const handleAnswerSelect = (answerId: string) => {
+  const handleAnswerSelect = (answerId: AnswerId) => {
+    if (!validatedConfig) {
+      // eslint-disable-next-line no-console
+      console.error('Cannot select answer: Game configuration is invalid');
+      return;
+    }
+
+    if (!currentQuestion) {
+      // eslint-disable-next-line no-console
+      console.error('Cannot select answer: Current question not found');
+      return;
+    }
+
     selectAnswer(answerId, questions);
   };
 
-  if (!currentQuestion) {
+  // Show loading state if configuration is invalid or question not found
+  if (!validatedConfig || !currentQuestion) {
     return <LoadingState />;
   }
 

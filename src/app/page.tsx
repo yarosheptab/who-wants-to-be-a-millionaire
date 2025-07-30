@@ -34,8 +34,13 @@ export default function Home() {
   }, [gameState]);
 
   const handleStartGame = useCallback(() => {
-    resetGame();
-    startGame();
+    try {
+      resetGame();
+      startGame();
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error starting game:', error);
+    }
   }, [resetGame, startGame]);
 
   const renderStartScreen = () => (
