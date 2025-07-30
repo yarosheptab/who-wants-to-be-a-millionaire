@@ -1,0 +1,234 @@
+/* Game Container */
+.gameContainer {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  background-color: var(--background-disabled);
+
+  @media (min-width: 768px) {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.score {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fbbf24;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Question Section */
+.questionContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 16px;
+  border-radius: 15px;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
+}
+
+.question {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 115.99999999999999%;
+  letter-spacing: 0%;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    text-align: left;
+    font-size: 32px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 22px;
+  }
+}
+
+/* Answer Grid */
+.answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  margin-bottom: 30px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+/* Answer Buttons */
+.answer {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: var(--text-primary);
+
+  &:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+}
+
+.answerId {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.answerText {
+  flex: 1;
+  font-weight: 500;
+}
+
+/* Answer States */
+.selected {
+  background: rgba(59, 130, 246, 0.3);
+  border-color: #3b82f6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.correct {
+  background: rgba(34, 197, 94, 0.3);
+  border-color: #22c55e;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+}
+
+.incorrect {
+  background: rgba(239, 68, 68, 0.3);
+  border-color: #ef4444;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+/* Game Over Screen */
+.gameOver {
+  text-align: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #fbbf24;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #4ade80;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+}
+
+/* Stats Section */
+.stats {
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+
+  p {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+/* New Game Button */
+.newGameButton {
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+  }
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+/* Game Content */
+.gameContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+
+  @media (min-width: 768px) {
+    padding: 122px 80px;
+    align-items: flex-start;
+    height: 100dvh;
+  }
+} 

@@ -1,0 +1,64 @@
+.progressListContainer {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  z-index: 100;
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-disabled);
+  transition: transform 0.6s ease-in-out;
+
+  @media (min-width: 768px) {
+    position: relative;
+    left: 0;
+    width: 376px;
+    background-color: var(--background);
+  }
+}
+
+.progressList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 8px;
+  width: 100%;
+}
+
+.listVisible {
+  transform: translateX(-100%);
+}
+
+.progressListHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 16px;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.progressListToggleButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
