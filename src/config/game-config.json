@@ -1,0 +1,136 @@
+{
+    "questions": [
+      {
+        "id": 1,
+        "amount": 500,
+        "question": "What color is the sky on a clear day?",
+        "answers": [
+          { "id": "A", "text": "Red", "isCorrect": false },
+          { "id": "B", "text": "Blue", "isCorrect": true },
+          { "id": "C", "text": "Green", "isCorrect": false },
+          { "id": "D", "text": "Yellow", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 2,
+        "amount": 1000,
+        "question": "Which planet is known as the Red Planet?",
+        "answers": [
+          { "id": "A", "text": "Venus", "isCorrect": false },
+          { "id": "B", "text": "Mars", "isCorrect": true },
+          { "id": "C", "text": "Jupiter", "isCorrect": false },
+          { "id": "D", "text": "Mercury", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 3,
+        "amount": 2000,
+        "question": "What is the capital of France?",
+        "answers": [
+          { "id": "A", "text": "Madrid", "isCorrect": false },
+          { "id": "B", "text": "Berlin", "isCorrect": false },
+          { "id": "C", "text": "Paris", "isCorrect": true },
+          { "id": "D", "text": "Rome", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 4,
+        "amount": 4000,
+        "question": "Which language is primarily used to style web pages?",
+        "answers": [
+          { "id": "A", "text": "HTML", "isCorrect": false },
+          { "id": "B", "text": "Python", "isCorrect": false },
+          { "id": "C", "text": "CSS", "isCorrect": true },
+          { "id": "D", "text": "SQL", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 5,
+        "amount": 8000,
+        "question": "Which gas do plants primarily absorb from the atmosphere during photosynthesis?",
+        "answers": [
+          { "id": "A", "text": "Oxygen", "isCorrect": false },
+          { "id": "B", "text": "Carbon dioxide", "isCorrect": true },
+          { "id": "C", "text": "Nitrogen", "isCorrect": false },
+          { "id": "D", "text": "Hydrogen", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 6,
+        "amount": 16000,
+        "question": "Who wrote the play \"Romeo and Juliet\"?",
+        "answers": [
+          { "id": "A", "text": "Charles Dickens", "isCorrect": false },
+          { "id": "B", "text": "William Shakespeare", "isCorrect": true },
+          { "id": "C", "text": "Jane Austen", "isCorrect": false },
+          { "id": "D", "text": "Mark Twain", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 7,
+        "amount": 32000,
+        "question": "Which ocean is the largest on Earth?",
+        "answers": [
+          { "id": "A", "text": "Indian Ocean", "isCorrect": false },
+          { "id": "B", "text": "Arctic Ocean", "isCorrect": false },
+          { "id": "C", "text": "Atlantic Ocean", "isCorrect": false },
+          { "id": "D", "text": "Pacific Ocean", "isCorrect": true }
+        ]
+      },
+      {
+        "id": 8,
+        "amount": 64000,
+        "question": "H₂O is the chemical formula for what substance?",
+        "answers": [
+          { "id": "A", "text": "Salt", "isCorrect": false },
+          { "id": "B", "text": "Oxygen", "isCorrect": false },
+          { "id": "C", "text": "Water", "isCorrect": true },
+          { "id": "D", "text": "Hydrogen peroxide", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 9,
+        "amount": 125000,
+        "question": "Which data structure operates on a FIFO (First In, First Out) principle?",
+        "answers": [
+          { "id": "A", "text": "Stack", "isCorrect": false },
+          { "id": "B", "text": "Queue", "isCorrect": true },
+          { "id": "C", "text": "Tree", "isCorrect": false },
+          { "id": "D", "text": "Graph", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 10,
+        "amount": 250000,
+        "question": "Which country hosted the 2016 Summer Olympics?",
+        "answers": [
+          { "id": "A", "text": "China", "isCorrect": false },
+          { "id": "B", "text": "United Kingdom", "isCorrect": false },
+          { "id": "C", "text": "Brazil", "isCorrect": true },
+          { "id": "D", "text": "United States", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 11,
+        "amount": 500000,
+        "question": "What is the smallest prime number?",
+        "answers": [
+          { "id": "A", "text": "0", "isCorrect": false },
+          { "id": "B", "text": "1", "isCorrect": false },
+          { "id": "C", "text": "2", "isCorrect": true },
+          { "id": "D", "text": "3", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 12,
+        "amount": 1000000,
+        "question": "Which chemical element has the symbol \"Au\"?",
+        "answers": [
+          { "id": "A", "text": "Silver", "isCorrect": false },
+          { "id": "B", "text": "Gold", "isCorrect": true },
+          { "id": "C", "text": "Argon", "isCorrect": false },
+          { "id": "D", "text": "Aluminum", "isCorrect": false }
+        ]
+      }
+    ]
+  }
