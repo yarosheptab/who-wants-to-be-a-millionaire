@@ -1,5 +1,5 @@
 import cn from '@/lib/cn';
-import styles from './start-section.module.css';
+import styles from './start-screen.module.css';
 
 interface HeroTitleProps {
   className?: string;

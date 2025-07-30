@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from './finish-section.module.css';
+import styles from './finish-screen.module.css';
 
 interface HeroImageProps {
   width: number;

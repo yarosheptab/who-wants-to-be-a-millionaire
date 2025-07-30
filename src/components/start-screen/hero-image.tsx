@@ -1,6 +1,6 @@
 import cn from '@/lib/cn';
 import Image from 'next/image';
-import styles from './start-section.module.css';
+import styles from './start-screen.module.css';
 
 interface HeroImageProps {
   className?: string;

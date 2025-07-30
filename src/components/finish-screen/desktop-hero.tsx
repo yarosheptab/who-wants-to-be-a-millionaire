@@ -1,5 +1,5 @@
 import Button from '@/components/ui/button';
-import styles from './finish-section.module.css';
+import styles from './finish-screen.module.css';
 import HeroImage from './hero-image';
 import ScoreDisplay from './score-display';
 

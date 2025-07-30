@@ -1,7 +1,7 @@
 import Button from '@/components/ui/button';
 import HeroImage from './hero-image';
 import HeroTitle from './hero-title';
-import styles from './start-section.module.css';
+import styles from './start-screen.module.css';
 
 interface DesktopHeroProps {
   onStartGame: () => void;

@@ -1,4 +1,4 @@
-import styles from './finish-section.module.css';
+import styles from './finish-screen.module.css';
 
 interface ScoreDisplayProps {
   earnedMoney: number;
