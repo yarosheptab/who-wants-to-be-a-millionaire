@@ -1,0 +1,25 @@
+.primaryButton {
+    background-color: var(--primary);
+    color: var(--background);
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: inherit;
+    width: 100%;
+
+    &:hover {
+        background-color: var(--primary-hover);
+    }
+
+    &:active {
+        background-color: var(--primary-active);
+    }
+
+    @media (width >= 768px) {
+        padding: 20px 24px;
+        width: auto;
+    }
+}
