@@ -1,5 +1,6 @@
 'use client';
 
+import ErrorBoundary from '@/components/error-boundary';
 import FinishScreen from '@/components/finish-screen';
 import GameScreen from '@/components/game/game-screen';
 import StartScreen from '@/components/start-screen';
@@ -62,15 +63,23 @@ export default function Home() {
     />
   );
 
-  switch (gamePhase) {
-    case GamePhase.FINISHED:
-      return renderFinishScreen();
+  const renderContent = () => {
+    switch (gamePhase) {
+      case GamePhase.FINISHED:
+        return renderFinishScreen();
 
-    case GamePhase.PLAYING:
-      return renderGameScreen();
+      case GamePhase.PLAYING:
+        return renderGameScreen();
 
-    case GamePhase.START:
-    default:
-      return renderStartScreen();
-  }
+      case GamePhase.START:
+      default:
+        return renderStartScreen();
+    }
+  };
+
+  return (
+    <ErrorBoundary>
+      {renderContent()}
+    </ErrorBoundary>
+  );
 }
